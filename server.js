@@ -14,7 +14,7 @@ app.use(express.json()); // Parses JSON data from your forms
 
 // 3. Serve Frontend
 // This tells Node to look inside the 'public' folder for your index.html
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
 
 // 4. MySQL Connection Pool
 // It pulls the values from your .env (including your quoted password)
