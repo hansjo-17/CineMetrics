@@ -367,17 +367,14 @@
            FRONTEND LOGIC (Vanilla JS & Fetch)
            Includes an automatic mock-fallback so the UI works perfectly in preview.
            ===================================================================== */
-
         const API_BASE_URL = 'https://cinemetrics-api-2z7h.onrender.com';
         let usingMockData = false;
-        
         // Mock data to ensure the UI works if the Express server isn't running yet
         let mockDB = [
             { id: 1, title: 'Blade Runner 2049', genre: 'Sci-Fi', rating: 9.5, watch_date: '2023-10-15', runtime: 163, review: 'Visual masterpiece. The cyber-punk aesthetics are unmatched.' },
             { id: 2, title: 'The Matrix', genre: 'Sci-Fi', rating: 9.0, watch_date: '2023-11-01', runtime: 136, review: 'Pioneering.' },
             { id: 3, title: 'Dune: Part Two', genre: 'Sci-Fi', rating: 9.8, watch_date: '2024-03-01', runtime: 166, review: 'Absolute cinema.' }
         ];
-
         // --- Core Fetch Wrapper handling the Real vs Mock state ---
         async function apiRequest(endpoint, options = {}) {
             if (usingMockData) return handleMockRequest(endpoint, options);
